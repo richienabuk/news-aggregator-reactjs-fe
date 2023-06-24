@@ -1,0 +1,8 @@
+/.env
+**/.idea
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+**/node_modules
+**/.git
+package-lock.json
