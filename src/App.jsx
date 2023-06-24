@@ -6,7 +6,7 @@ import Sources from './Pages/News/NewsSources.jsx'
 import Authors from './Pages/News/NewsAuthors.jsx'
 import Authentication from './Pages/User/UserAuth.jsx'
 import UserPreference from './Pages/User/UserPreference.jsx'
-import ErrorPage from './Pages/ErrorPage.jsx';
+import NotFound from './Pages/NotFound.jsx';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
               <Route path='authors' element={<Authors />} />
               <Route path='auth/*' element={<Authentication />} />
               <Route path='user/preferences' element={<UserPreference />} />
-              <Route path='*' element={<ErrorPage />} />
+              <Route path='*' element={<NotFound />} />
           </Route>
       </Routes>
   )
