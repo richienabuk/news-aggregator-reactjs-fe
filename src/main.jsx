@@ -1,25 +1,24 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloProvider } from '@apollo/client';
 import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals';
-
-const client = new ApolloClient({
-    uri: import.meta.env.VITE_GRAPHQL_API_URL,
-    cache: new InMemoryCache(),
-});
+import apolloClient from './utilities/graphQL/ApolloClient.js';
+import { AuthProvider } from './context/authContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <ApolloProvider client={client}>
-            <BrowserRouter>
-                <App />
-            </BrowserRouter>
-        </ApolloProvider>
+        <AuthProvider>
+            <ApolloProvider client={apolloClient}>
+                <BrowserRouter>
+                    <App />
+                </BrowserRouter>
+            </ApolloProvider>
+        </AuthProvider>
     </React.StrictMode>
 );
 

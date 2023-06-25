@@ -1,11 +1,11 @@
 import { Link } from "react-router-dom";
-import { useState } from 'react'
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import NavBarMenuList from './NavBarMenuList.jsx';
 import BaseIcon from './BaseIcon.jsx';
 import { mdiChevronDown, mdiChevronUp } from '@mdi/js';
 
-const NavBarItem = ({ item }) => {
+const NavBarItem = ({ item, logOut }) => {
 	// @todo manage state in upper scope or with context to allow for closing opened toggle before opening another.
 	const [isDropdownActive, setIsDropdownActive] = useState(false)
 	const componentClass = [
@@ -19,6 +19,10 @@ const NavBarItem = ({ item }) => {
 	const handleMenuClick = () => {
 		if (item.menu) {
 			setIsDropdownActive(!isDropdownActive)
+		}
+
+		if (item.isLogout) {
+			logOut()
 		}
 	}
 
@@ -74,7 +78,8 @@ const NavBarItem = ({ item }) => {
 };
 
 NavBarItem.propTypes = {
-	item: PropTypes.object.isRequired
+	item: PropTypes.object.isRequired,
+	logOut: PropTypes.func
 };
 
 export default NavBarItem

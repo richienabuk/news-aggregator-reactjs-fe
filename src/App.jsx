@@ -1,12 +1,12 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout.jsx';
-import Home from './Pages/HomePage.jsx'
-import Categories from './Pages/News/NewsCategories.jsx'
-import Sources from './Pages/News/NewsSources.jsx'
-import Authors from './Pages/News/NewsAuthors.jsx'
-import Authentication from './Pages/User/UserAuth.jsx'
-import UserPreference from './Pages/User/UserPreference.jsx'
-import NotFound from './Pages/NotFound.jsx';
+import Home from './pages/HomePage.jsx'
+import Categories from './pages/news/NewsCategories.jsx'
+import Sources from './pages/news/NewsSources.jsx'
+import Authors from './pages/news/NewsAuthors.jsx'
+import Authentication from './pages/user/UserAuth.jsx'
+import UserPreference from './pages/user/UserPreference.jsx'
+import NotFound from './pages/NotFound.jsx';
 
 const App = () => {
   return (
@@ -16,7 +16,7 @@ const App = () => {
               <Route path='categories' element={<Categories />} />
               <Route path='sources' element={<Sources />} />
               <Route path='authors' element={<Authors />} />
-              <Route path='auth/*' element={<Authentication />} />
+              <Route path='auth/:action' element={<Authentication />} />
               <Route path='user/preferences' element={<UserPreference />} />
               <Route path='*' element={<NotFound />} />
           </Route>

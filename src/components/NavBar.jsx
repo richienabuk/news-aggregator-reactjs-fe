@@ -1,13 +1,16 @@
 import siteLogo from '../assets/aggrenews.svg';
 import NavBarMenuList from './NavBarMenuList.jsx';
 import { mainMenu, userMenu } from '../menuItems.js';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import BaseIcon from './BaseIcon.jsx';
 import { mdiClose, mdiMenu } from '@mdi/js';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/authContext.jsx';
 
 const NavBar = () => {
 	const [isOpen, setIsOpen] = useState(false)
+
+	const { user } = useContext(AuthContext)
 
 	const handleMenuNavBarToggleClick = () => {
 		setIsOpen(!isOpen)
@@ -23,7 +26,7 @@ const NavBar = () => {
 						</Link>
 
 						{/*Mobile menu button*/}
-						<div onClick={handleMenuNavBarToggleClick} className="flex lg:hidden">
+						<div onClick={handleMenuNavBarToggleClick} className="flex lg:hidden cursor-pointer">
 							<BaseIcon path={isOpen ? mdiClose : mdiMenu} size="24" />
 						</div>
 					</div>
@@ -33,7 +36,7 @@ const NavBar = () => {
 					} absolute inset-x-0 z-20 flex-1 w-full px-6 py-4 transition-all duration-300 ease-in-out bg-white lg:mt-0 lg:p-0 lg:top-0 lg:relative lg:bg-transparent lg:w-auto lg:opacity-100 lg:translate-x-0 lg:flex lg:items-center lg:justify-between`}>
 						<NavBarMenuList menu={mainMenu} className={"flex flex-col text-gray-600 capitalize lg:flex lg:px-16 lg:-mx-4 lg:flex-row lg:items-center"} />
 
-						<NavBarMenuList menu={userMenu} className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2" />
+						<NavBarMenuList menu={userMenu} user={user ? user.user : {}} className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2" />
 					</div>
 				</div>
 			</div>
