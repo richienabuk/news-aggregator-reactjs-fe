@@ -42,3 +42,46 @@ export const GET_NEWS = gql`
         }
     }
 `;
+
+export const GET_AUTHORS = gql`
+    query LoadNews($name: String) {
+        authors(name: $name) {
+            id
+            name
+        }
+    }
+`;
+
+export const GET_SOURCES = gql`
+    query LoadSources($name: String) {
+        sources(name: $name) {
+            id
+            name
+        }
+    }
+`;
+
+export const GET_CATEGORIES = gql`
+    query LoadCategories($name: String) {
+        categories(name: $name) {
+            id
+            name
+        }
+    }
+`;
+
+export const GET_PREFERENCES =  gql`
+    query Account {
+        me {
+            id
+            name
+            email
+            created_at
+            preferences {
+                id
+                key
+                value
+            }
+        }
+    }
+`;

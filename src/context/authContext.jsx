@@ -7,7 +7,7 @@ const authTypes = {
 }
 
 const initialState = {
-	user: null
+	user: {}
 }
 
 let existing = localStorage.getItem(AUTH_TOKEN)
@@ -17,7 +17,7 @@ if (existing) {
 }
 
 const AuthContext = createContext({
-	user: null,
+	user: {},
 	login: (userData) => {},
 	logout: () => {}
 })
@@ -32,7 +32,7 @@ const authReducer = (state, action) => {
 		case authTypes.LOGOUT:
 			return {
 				...state,
-				user: null
+				user: {}
 			}
 		default:
 			return state

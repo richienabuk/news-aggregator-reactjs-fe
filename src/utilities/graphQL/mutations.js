@@ -44,3 +44,13 @@ export const LOGOUT_MUTATION = gql`
         }
     }
 `;
+
+export const UPSERT_PREFERENCE = gql`
+    mutation UpsertUserPreference($input: UpsertUserPreferenceInput!) {
+        upsertUserPreference(input: $input) {
+            id
+            key
+            value
+        }
+    }
+`;

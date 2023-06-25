@@ -1,11 +1,13 @@
 const NewsSources = () => {
 	return (
-		<div className="grid grid-cols-2 gap-4 place-content-center h-screen">
-			<div>01</div>
-			<div>02</div>
-			<div>03</div>
-			<div>04</div>
-		</div>
+		<section>
+			<div className="mt-10 mb-8 flex flex-col text-center w-full">
+				<h1 className="sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900">Curated News Sources</h1>
+				<p className="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-500">
+					See all our sources for your daily updates
+				</p>
+			</div>
+		</section>
 	)
 }
 
