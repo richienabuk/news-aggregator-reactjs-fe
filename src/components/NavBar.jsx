@@ -17,10 +17,10 @@ const NavBar = () => {
 	}
 
 	return (
-		<nav className="bg-white shadow">
-			<div className="container px-6 py-4 mx-auto">
+		<header className="bg-white shadow">
+			<section className="container px-6 py-4 mx-auto">
 				<div className="lg:flex lg:items-center">
-					<div className="flex items-center justify-between">
+					<nav className="flex items-center justify-between">
 						<Link to="/">
 							<img src={siteLogo} className="w-auto h-6 sm:h-7" alt="site logo" />
 						</Link>
@@ -29,7 +29,7 @@ const NavBar = () => {
 						<div onClick={handleMenuNavBarToggleClick} className="flex lg:hidden cursor-pointer">
 							<BaseIcon path={isOpen ? mdiClose : mdiMenu} size="24" />
 						</div>
-					</div>
+					</nav>
 
 					<div className={`${
 						isOpen ? 'translate-x-0 opacity-100' : 'opacity-0 -translate-x-full'
@@ -39,8 +39,8 @@ const NavBar = () => {
 						<NavBarMenuList menu={userMenu} user={user ? user.user : {}} className="flex justify-center mt-6 lg:flex lg:mt-0 lg:-mx-2" />
 					</div>
 				</div>
-			</div>
-		</nav>
+			</section>
+		</header>
 	)
 }
 
