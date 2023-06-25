@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { useState, useContext } from 'react';
 import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../../utilities/graphQL/mutations.js';
@@ -15,9 +15,9 @@ const UserAuth = () => {
 	const isSignUp = action === 'sign-up'; // default is login
 
 	let formFields = {
-		name: { label: 'Name', type: 'text', placeholder: 'John Doe' },
-		email: { label: 'Email', type: 'text', placeholder: 'name@company.com' },
-		password: { label: 'Password', type: 'password', placeholder: '••••••••' }
+		name: { label: 'Name', type: 'text', placeholder: 'John Doe', required: true },
+		email: { label: 'Email', type: 'text', placeholder: 'name@company.com', required: true },
+		password: { label: 'Password', type: 'password', placeholder: '••••••••', required: true }
 	}
 
 	if (!isSignUp) {
@@ -60,16 +60,16 @@ const UserAuth = () => {
 		if (!isSignUp) {
 			return (
 				<p className="text-sm font-light text-gray-500">
-					Don’t have an account yet? <a href="/auth/sign-up" className="font-medium text-red-600 hover:underline">Sign up</a>
-					{/*<Link to="/auth/sign-up" className="font-medium text-red-600 hover:underline">Sign up</Link>*/}
+					Don’t have an account yet? <Link to="/auth/sign-up" className="font-medium text-red-600 hover:underline">Sign up</Link>
+					{/*<a href="/auth/sign-up" className="font-medium text-red-600 hover:underline">Sign up</a>*/}
 				</p>
 			)
 		}
 
 		return (
 			<p className="text-sm font-light text-gray-500">
-				Already have an account? <a href="/auth/login" className="font-medium text-red-600 hover:underline">Log in</a>
-				{/*<Link to="/auth/login" className="font-medium text-red-600 hover:underline">Log in</Link>*/}
+				Already have an account? <Link to="/auth/login" className="font-medium text-red-600 hover:underline">Log in</Link>
+				{/*<a href="/auth/login" className="font-medium text-red-600 hover:underline">Log in</a>*/}
 			</p>
 		)
 	}
@@ -96,7 +96,7 @@ const UserAuth = () => {
 									onChange={onChange}
 									className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-red-600 focus:border-red-600 block w-full p-2.5"
 									placeholder={field.placeholder}
-									required=""
+									required={field.required}
 								/>
 							</div>
 							)
