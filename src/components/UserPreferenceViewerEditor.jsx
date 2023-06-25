@@ -23,7 +23,6 @@ const UserPreferenceViewerEditor = ({ data, userPreference, upsertPreference }) 
 		if (userPreference.id) {
 			data.id = userPreference.id
 		}
-		console.log(data)
 		upsertPreference(data)
 	}
 

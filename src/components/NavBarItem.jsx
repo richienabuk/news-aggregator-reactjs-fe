@@ -14,6 +14,7 @@ const NavBarItem = ({ item, logOut }) => {
 			? ''
 			: 'text-black hover:text-blue-500 py-2 px-3',
 		item.menu ? 'lg:py-2 lg:px-3' : 'py-2 px-3',
+		item.className ? item.className : ''
 	].join(' ')
 
 	const handleMenuClick = () => {

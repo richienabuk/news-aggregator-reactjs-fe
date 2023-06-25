@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const ListPagination = ({ currentPage, total, perPage, hasMorePages, lastItem, onPaginate }) => {
+const ListPagination = ({ currentPage, total, perPage, hasMorePages, lastItem, onPaginate, count }) => {
 	if (!total) {
 		return null;
 	}
@@ -12,7 +12,7 @@ const ListPagination = ({ currentPage, total, perPage, hasMorePages, lastItem, o
 	return (
 		<section className="mb-16">
 			<div className="flex flex-col items-center">
-				<span className="text-sm text-gray-700">Showing <span className="font-semibold text-gray-900">{(lastItem - perPage) + 1}</span> to <span className="font-semibold text-gray-900">{lastItem}</span> of <span className="font-semibold text-gray-900">{total}</span> Articles</span>
+				<span className="text-sm text-gray-700">Showing <span className="font-semibold text-gray-900">{count}</span> to <span className="font-semibold text-gray-900">{lastItem}</span> of <span className="font-semibold text-gray-900">{total}</span> Articles</span>
 				<div className="inline-flex mt-2 xs:mt-0">
 					<button
 						disabled={currentPage === 1}
@@ -45,6 +45,7 @@ ListPagination.propTypes = {
 	total: PropTypes.number,
 	perPage: PropTypes.number,
 	lastItem: PropTypes.number,
+	count: PropTypes.number,
 	hasMorePages: PropTypes.bool,
 	onPaginate: PropTypes.func,
 };

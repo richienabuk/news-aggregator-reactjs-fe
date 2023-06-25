@@ -1,30 +1,36 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 
-const ArticleSearchFilter = ({ searchFilterUpdate }) => {
-	const [values, setValues] = useState({});
+const ArticleSearch = ({ searchFilterUpdate }) => {
+	const [value, setValue] = useState("");
+	const [showFooter, setShowFooter] = useState(false);
 	const onSubmit = (event) => {
 		event.preventDefault();
-		searchFilterUpdate(values)
+		searchFilterUpdate({ searchTerm: value })
+		setShowFooter(true)
+	}
+	const reset = () => {
+		setValue("")
+		searchFilterUpdate({ reset: true })
+		setShowFooter(false)
 	}
 	return (
 		<>
-		<section className="mb-16">
-			<form onSubmit={onSubmit}>
+			<form onSubmit={onSubmit} className="mb-8">
 				<label
 					className="mx-auto mt-8 relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300"
 					htmlFor="search-bar">
 					<input
-						onChange={(e) => setValues({ ...values, searchTerm: e.target.value })}
+						onChange={(e) => setValue(e.target.value)}
 						id="search-bar"
 						name="searchTerm"
+						value={value}
 						placeholder="Enter search term here"
 						className="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white"
 					/>
 					<button className="w-full md:w-auto px-6 py-3 bg-red-900 border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all disabled:opacity-70">
 						<div className="relative">
-							<div
-								className="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
+							<div className="flex items-center justify-center h-3 w-3 absolute inset-1/2 -translate-x-1/2 -translate-y-1/2 transition-all">
 								<svg className="opacity-0 animate-spin w-full h-full" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
 									<circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
 									<path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
@@ -38,13 +44,16 @@ const ArticleSearchFilter = ({ searchFilterUpdate }) => {
 					</button>
 				</label>
 			</form>
-		</section>
+			{showFooter && <div className="mx-auto min-w-sm max-w-2xl flex flex-row justify-between items-center px-2 gap-2">
+				<span className="font-semibold">Filters</span>
+				<input type="reset" defaultValue="Clear" onClick={reset} className="cursor-pointer text-red-500 underline" />
+			</div>}
 		</>
 	)
 }
 
-ArticleSearchFilter.propTypes = {
+ArticleSearch.propTypes = {
 	searchFilterUpdate: PropTypes.func.isRequired,
 };
 
-export default ArticleSearchFilter
+export default ArticleSearch

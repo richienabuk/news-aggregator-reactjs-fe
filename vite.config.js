@@ -13,7 +13,7 @@ export default ({ mode }) => {
 
     server: {
       host: true,
-      port: parseInt(process.env.APP_PORT) || 3000,
+      port: parseInt(process.env.APP_PORT) || 3002,
       watch: {
         usePolling: true
       },
