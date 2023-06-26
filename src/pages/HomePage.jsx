@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import { GET_CATEGORIES, GET_NEWS, GET_SOURCES } from '../utilities/graphQL/queries.js';
+import { GET_CATEGORIES, GET_NEWS, GET_SOURCES } from '../utilities/graphQL/queries.jsx';
 import { useContext, useState } from 'react';
 import ArticleList from '../components/ArticleList.jsx';
 import QueryResult from '../components/QueryResult.jsx';

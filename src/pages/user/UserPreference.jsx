@@ -1,9 +1,9 @@
 import { useMutation, useQuery } from '@apollo/client';
-import { GET_AUTHORS, GET_CATEGORIES, GET_PREFERENCES, GET_SOURCES } from '../../utilities/graphQL/queries.js';
+import { GET_AUTHORS, GET_CATEGORIES, GET_PREFERENCES, GET_SOURCES } from '../../utilities/graphQL/queries.jsx';
 import QueryResult from '../../components/QueryResult.jsx';
 import { useState } from 'react';
 import UserPreferenceViewerEditor from '../../components/UserPreferenceViewerEditor.jsx';
-import { UPSERT_PREFERENCE } from '../../utilities/graphQL/mutations.js';
+import { UPSERT_PREFERENCE } from '../../utilities/graphQL/mutations.jsx';
 
 const UserPreference = () => {
 	const [preferredSources, setPreferredSources] = useState({ value: [], key: 'Sources' });

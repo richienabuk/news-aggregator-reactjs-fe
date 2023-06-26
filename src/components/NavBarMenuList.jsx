@@ -3,7 +3,7 @@ import NavBarItem from './NavBarItem'
 import { useContext } from 'react';
 import { AuthContext } from '../context/authContext.jsx';
 import { useMutation } from '@apollo/client';
-import { LOGOUT_MUTATION } from '../utilities/graphQL/mutations.js';
+import { LOGOUT_MUTATION } from '../utilities/graphQL/mutations.jsx';
 import { useNavigate } from 'react-router-dom';
 
 const NavBarMenuList = ({ menu, className = '', user = {} }) => {

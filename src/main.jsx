@@ -5,8 +5,8 @@ import { BrowserRouter } from 'react-router-dom'
 import App from './App.jsx'
 import './index.css'
 import reportWebVitals from './reportWebVitals';
-import apolloClient from './utilities/graphQL/ApolloClient.js';
-import { AuthProvider } from './context/authContext';
+import apolloClient from './utilities/graphQL/apolloClient.jsx';
+import { AuthProvider } from './context/authContext.jsx';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 

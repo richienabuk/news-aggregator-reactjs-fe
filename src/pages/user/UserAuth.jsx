@@ -1,9 +1,9 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { useState, useContext } from 'react';
-import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../../utilities/graphQL/mutations.js';
+import { LOGIN_MUTATION, SIGNUP_MUTATION } from '../../utilities/graphQL/mutations.jsx';
 import { AuthContext } from '../../context/authContext.jsx';
-import { useForm } from '../../utilities/formHook.js';
+import { useForm } from '../../utilities/formHook.jsx';
 import DisplayError from '../../components/DisplayError.jsx';
 
 const UserAuth = () => {
