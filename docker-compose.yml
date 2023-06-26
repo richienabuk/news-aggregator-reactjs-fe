@@ -4,6 +4,5 @@ services:
     build: .
     ports:
       - "${APP_PORT:-3000}:3000"
-#    volumes:
-#      - .:/app
-# I comment this out because it's
+    volumes:
+      - .:/app
