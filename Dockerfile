@@ -6,7 +6,7 @@ WORKDIR /app
 # Cache and Install dependencies
 COPY package.json .
 
-RUN npm install
+RUN npm i -g npm && npm install --quiet --force && rm -rf /tmp/*
 
 EXPOSE 3000
 

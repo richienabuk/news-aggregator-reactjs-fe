@@ -14,6 +14,3 @@ React JS News aggregator website using GraphQL to fetch news from an API built w
 
 ### Built by
 - **[Imo-owo Nabuk](https://github.com/richienabuk)**
-
-### Note
-- Running this App with Docker on Mac M-series system throws an error - `"@esbuild/darwin-arm64" package platform` - and that's related to vite. Due to time constraint, I couldn’t find a way around it. Kindly use Windows or Linux for Docker or use the app without Docker.
